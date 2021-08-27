@@ -5,19 +5,19 @@ import java.util.Iterator;
 class Iterators {
 
     public static Iterator<Integer> intArrayTwoTimesIterator(int[] array){
-        throw new UnsupportedOperationException();
+        return new IntArrayTwoTimesIterator(array);
     }
 
     public static Iterator<Integer> intArrayThreeTimesIterator(int[] array) {
-        throw new UnsupportedOperationException();
+        return new IntArrayThreeTimesIterator(array);
     }
 
     public static Iterator<Integer> intArrayFiveTimesIterator(int[] array) {
-        throw new UnsupportedOperationException();
+        return new IntArrayFiveTimesIterator(array);
         }
 
-    public static Iterable<String> table(String[] columns, int[] rows){
-        throw new UnsupportedOperationException();
+    public static Iterable<String> table(String[] columns, int[] rows) {
+        return new TableIterable(columns, rows);
     }
 
 
