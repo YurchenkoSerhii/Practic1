@@ -1,6 +1,7 @@
 package com.epam.rd.autocode.observer.git;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RepositoryImpl implements Repository {
     private final Map<String, List<WebHook>> webHooks = new HashMap<>();
@@ -27,8 +28,8 @@ public class RepositoryImpl implements Repository {
         for (WebHook hook : sourceHooks) {
             commits.addAll(hook.caughtEvents().stream()
                     .filter(e -> e.type() == Event.Type.COMMIT)
-                    .flatMap(e -> e.commits().stream())
-                    .toList());
+                    .flatMap(e -> e.commits().stream()).collect(Collectors.toList()));
+
         }
 
         // Фильтруем коммиты, которые уже были слиты в целевую ветку
